@@ -192,7 +192,7 @@ function render(){
   const list = DATA.filter(d =>
     (team==="전체" || d.team===team) &&
     (!term || [d.name,d.dept,d.title,d.summary].join(" ").toLowerCase().includes(term)))
-    .sort((a,b) => a.name.localeCompare(b.name,"ko") || a.dept.localeCompare(b.dept,"ko") || a.title.localeCompare(b.title,"ko"));
+    .sort((a,b) => a.name.localeCompare(b.name,"ko") || a.title.localeCompare(b.title,"ko"));
   grid.innerHTML = list.length ? list.map(d=>`
     <button class="card" data-n="${d.n}">
       <div class="thumb"><img src="${CUR.thumbs}${d.thumb || d.n}.jpg" alt="${esc(d.title)} 팜플렛 첫 페이지" loading="lazy"></div>
