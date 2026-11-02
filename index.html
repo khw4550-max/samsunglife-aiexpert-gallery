@@ -120,7 +120,7 @@ const SECTIONS = {
     kinds:[["pamphlet","팜플렛"],["slides","발표자료"],["video","시연영상"],["solution","에이전트 솔루션"]]},
 }},
   aiadvanced: {label:"AI Advanced", weeks:{
-  final: {label:"최종 과제", sub:"AI Advanced", data:W3, date:"2026.08.21",
+  final: {label:"최종 과제", sub:"AI Advanced", data:W3, thumbs:"thumbs/adv/", date:"2026.08.21",
     eyebrow:"삼성생명 AI Advanced 과정 · 최종 과제",
     lead:"AI Advanced 과정에서 수강생들이 만든 업무 AI 에이전트를 모았습니다. 카드를 누르면 팜플렛과 발표자료를 바로 볼 수 있어요.",
     kinds:[["pamphlet","팜플렛"],["slides","발표자료"]]},
@@ -194,7 +194,7 @@ function render(){
     (!term || [d.name,d.dept,d.title,d.summary].join(" ").toLowerCase().includes(term)));
   grid.innerHTML = list.length ? list.map(d=>`
     <button class="card" data-n="${d.n}">
-      <div class="thumb"><img src="${d.thumb ? `https://lh3.googleusercontent.com/d/${d.thumb}=w600` : `${CUR.thumbs}${d.n}.jpg`}" alt="${esc(d.title)} 팜플렛 첫 페이지" loading="lazy"></div>
+      <div class="thumb"><img src="${CUR.thumbs}${d.thumb || d.n}.jpg" alt="${esc(d.title)} 팜플렛 첫 페이지" loading="lazy"></div>
       <div class="body">
         <div class="meta">${d.team?`<span class="tag">${d.team}</span>`:""}<span class="tag dept">${esc(d.dept)}</span></div>
         <h2>${esc(d.title)}</h2>
